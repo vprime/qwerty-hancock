@@ -73,7 +73,8 @@
             blackKeyColour: user_settings.blackKeyColour || '#000',
             activeColour:   user_settings.activeColour || 'yellow',
             borderColour:   user_settings.borderColour || '#000',
-            keyboardLayout: user_settings.keyboardLayout || 'en'
+            keyboardLayout: user_settings.keyboardLayout || 'en',
+            fontSize:       user_settings.fontSize || '0px'
         };
 
         container = document.getElementById(settings.id);
@@ -228,7 +229,7 @@
     var styleKeyboard = function (keyboard) {
         var styleElement = function (el) {
             el.style.cursor = 'default';
-            el.style.fontSize = '0px';
+            el.style.fontSize = settings.fontSize;
             el.style.height = settings.height + 'px';
             el.style.padding = 0;
             el.style.position = 'relative';
@@ -292,6 +293,7 @@
         key.el = document.createElement('li');
         key.el.id = key.id;
         key.el.title = key.id;
+        key.el.innerHTML = key.id;
         key.el.setAttribute('data-note-type', key.colour);
 
         styleKey(key);
